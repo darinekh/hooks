@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+// Functional component to add a new movie
+// Receives a prop "onAdd" which is a function to handle adding the new movie
 function AddMovieForm({ onAdd }) {
   const [title, setTitle] = useState('')
   const [year, setYear] = useState('')
@@ -8,10 +9,16 @@ function AddMovieForm({ onAdd }) {
   const [price, setPrice] = useState('')
   const [rating, setRating] = useState('')
 
+  
+  // Function to handle form submission
   function submit(e) {
     e.preventDefault()
+    
+    // Prevent adding movie if title is empty
     if (!title.trim()) return;
 
+    
+    // Create a new movie object from input fields
     const newMovie = { title, year, description, poster, price, rating }
 
     if (onAdd) onAdd(newMovie)

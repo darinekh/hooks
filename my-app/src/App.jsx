@@ -4,15 +4,21 @@ import MovieList from './MovieList'
 import AddMovieForm from './AddMovieForm'
 
 function App() {
+   // State to store the list of movies
   const [movies, setMovies] = useState([])
+  
+  // State for filtering inputs
   const [title, setTitle] = useState('')
   const [rating, setRating] = useState(0)
+    // State to toggle the AddMovieForm visibility
   const [show, setShow] = useState(false)
 
+  // Function to handle adding a new movie
   function handelAdd(movie){
     setMovies([...movies, {id:crypto.randomUUID(), ...movie}])
   }
 
+    // Filter movies based on title (case-insensitive) and minimum rating
   const filteredMovies = movies.filter(m => {
     return (
       m.title.toLowerCase().includes(title.toLowerCase()) &&

@@ -1,4 +1,5 @@
 import React from 'react'
+// Functional component MovieCard that receives a "movie" prop as input
 
 function MovieCad({movie}) {
   return (
